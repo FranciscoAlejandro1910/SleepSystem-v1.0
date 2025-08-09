@@ -1,0 +1,208 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.inicio-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #1f2937;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+    .navbar a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+        position: relative;
+    }
+
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0;
+            height: 2px;
+            background-color: #a855f7;
+            transition: width 0.3s ease;
+        }
+
+        .navbar a:hover::after {
+            width: 100%;
+        }
+
+        .navbar a.activo {
+            border-bottom: 2px solid #a855f7;
+            padding-bottom: 0.2rem;
+        }
+
+        .navbar a:hover {
+            color: #a855f7;
+        }
+
+.section {
+    padding: 4rem 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.intro-background {
+    background: linear-gradient(to right, #f472b6, #c084fc);
+    color: white;
+    text-align: center;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+.titulo {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.subtitulo {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.imagen-principal {
+    width: 250px;
+    height: auto;
+    display: block;
+    margin: 0 auto 2rem;
+}
+
+.btn-evaluacion {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+    .btn-evaluacion:hover {
+        background-color: #1e40af;
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        transform: scale(1.05);
+    }
+
+.night-hover:hover {
+    background-color: #111827;
+    color: #fff;
+}
+
+.blanco {
+    background-color: white;
+    color: #333;
+    border-radius: 8px;
+    margin-top: 2rem;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.centrar-imagen {
+    text-align: center;
+}
+
+.imagen-higiene {
+    width: 200px;
+    margin-bottom: 1rem;
+}
+
+.contenido-higiene ul {
+    list-style-type: disc;
+    padding-left: 2rem;
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.fade-in {
+    animation: fadeIn ease 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn-subir {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: #4b5563;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+    .btn-subir:hover {
+        background-color: #1f2937;
+    }
+
+.footer {
+    background-color: #1f2937;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 4rem;
+}
+
+.mapa-clinicas {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.selectores {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+    .selectores select {
+        padding: 0.6rem;
+        font-size: 1rem;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+    }

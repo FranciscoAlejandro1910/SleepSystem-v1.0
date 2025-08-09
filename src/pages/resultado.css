@@ -1,0 +1,170 @@
+.resultado-container {
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, #c5cae9, #e8eaf6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.datos-form {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+    .datos-form select {
+        width: 100%;
+        margin: 0.5rem 0;
+        padding: 0.7rem;
+        font-size: 1rem;
+        border-radius: 8px;
+        border: 1px solid #b0bec5;
+    }
+
+.btn-enviar {
+    margin-top: 1rem;
+    background: #3949ab;
+    color: #fff;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+    .btn-enviar:hover {
+        background: #303f9f;
+    }
+
+.resultado-tarjeta {
+    background: #fff;
+    padding: 2rem 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+}
+
+    .resultado-tarjeta h2 {
+        color: #3f51b5;
+        margin-bottom: 1rem;
+    }
+
+.puntuacion {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #1a237e;
+}
+
+.nivel {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #3949ab;
+}
+
+.descripcion {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #546e7a;
+}
+
+.extra {
+    font-size: 0.9rem;
+    color: #757575;
+}
+
+.btn-volver {
+    margin-top: 1rem;
+    background: #5c6bc0;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+    .btn-volver:hover {
+        background: #3949ab;
+    }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.resultado-tarjeta {
+    animation: fadeInUp 0.8s ease forwards;
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 600px;
+    margin: 2rem auto;
+    opacity: 0; /* inicial, hasta que se active la animación */
+}
+
+.mapa-sugerido {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: #f9fafb;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+.googlefit-opcional {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    margin-top: 2rem;
+    text-align: center;
+    transition: all 0.5s ease-in-out;
+}
+
+    .googlefit-opcional h3 {
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+        color: #111827;
+    }
+
+    .googlefit-opcional p {
+        font-size: 1rem;
+        color: #4b5563;
+    }
+
+.datos-sueno {
+    margin-top: 1rem;
+    background-color: #f9fafb;
+    padding: 1rem;
+    border-radius: 12px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+    .datos-sueno ul {
+        padding-left: 1.5rem;
+        list-style: disc;
+    }
+
+    .datos-sueno li {
+        margin-bottom: 0.8rem;
+        font-size: 0.95rem;
+        color: #374151;
+    }
