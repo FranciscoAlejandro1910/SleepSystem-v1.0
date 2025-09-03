@@ -168,3 +168,46 @@
         font-size: 0.95rem;
         color: #374151;
     }
+
+/* Ícono dentro del botón */
+.icono-fit {
+    width: 22px;
+    height: 22px;
+    animation: latido 2s infinite ease-in-out;
+}
+
+/* Animación de latido */
+@keyframes latido {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+/* Botón exclusivo Google Fit */
+.btn-googlefit {
+    background: linear-gradient(135deg, #7e22ce 0%, #2563eb 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 9999px; /* pill */
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+    /* Hover exclusivo */
+    .btn-googlefit:hover {
+        background: linear-gradient(135deg, #9333ea 0%, #1e3a8a 100%);
+        transform: scale(1.08);
+        box-shadow: 0 6px 18px rgba(126, 34, 206, 0.4);
+    }

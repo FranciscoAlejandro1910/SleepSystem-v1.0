@@ -1,0 +1,97 @@
+.animal-sueno-container {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #f7a1c4, #ffffff);
+    padding: 2rem;
+    text-align: center;
+}
+
+    .animal-sueno-container h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: #4a235a;
+    }
+
+    .animal-sueno-container p {
+        color: #555;
+        margin-bottom: 1rem;
+    }
+
+.btn-animal {
+    background: linear-gradient(135deg, #8e44ad, #9b59b6);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 5px 15px rgba(142, 68, 173, 0.3);
+}
+
+    .btn-animal:hover {
+        background: linear-gradient(135deg, #9b59b6, #af7ac5);
+        transform: scale(1.07);
+    }
+
+/* Tarjeta del animal detectado */
+.resultado-animal {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+    .resultado-animal .animal-icon {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+    }
+
+    .resultado-animal .animal-nombre {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #8e44ad;
+        margin-bottom: 1rem;
+    }
+
+    .resultado-animal .animal-desc {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #444;
+    }
+
+/* Tarjetas cortas con todos los animales */
+.animales-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.animal-card {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+    .animal-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .animal-card .icon {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .animal-card h4 {
+        margin: 0.5rem 0;
+        color: #6c3483;
+    }

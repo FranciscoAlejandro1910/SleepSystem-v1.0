@@ -20,6 +20,7 @@ export default function Inicio() {
                 <a href="#higiene">Higiene</a>
                 <a href="#evaluacion">Evaluación</a>
                 <a href="#clinicas">Ubica tu clínica del sueño</a>
+                <a href="/animal-sueno">Conoce tu animal del sueño</a>
             </nav>
 
             <section id="intro" className="intro-background fade-in">
