@@ -4,6 +4,8 @@ import imagenSueno from "../assets/sueno.png";
 import imagenHigiene from "../assets/higiene.png";
 import { ArrowUp } from "lucide-react";
 import MapaClinicas from '../components/MapaClinicas';
+import  '../components/ChatWidget.css';
+import ChatWidget from "../components/chatWidget";
 
 
 export default function Inicio() {
@@ -87,6 +89,12 @@ export default function Inicio() {
             <button className="btn-subir" onClick={scrollToTop}>
                 <ArrowUp size={20} />
             </button>
+
+            <ChatWidget />
+
+
         </div>
+
+        
     );
 }

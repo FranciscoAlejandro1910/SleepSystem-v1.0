@@ -169,8 +169,8 @@ body, html {
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
-    z-index: 1000;
-}
+    z-index: 10000; /* 👈 ahora es mayor que el chat */
+}   
 
     .btn-subir:hover {
         background-color: #1f2937;
