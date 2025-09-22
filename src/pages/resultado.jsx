@@ -1,40 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import calcularPuntuacionPorItems from '../utils/calcularPuntuacionPorItems';
 import './Resultado.css';
 import MapaClinicas from '../components/MapaClinicas';
 import { useGoogleLogin } from '@react-oauth/google';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LabelList, Cell } from 'recharts';
 import imagenGoogleFit from '../assets/googlefit.png'; 
+import { evaluacionPuntaje } from '../../scripts/evaluacionPuntaje';
 
 export default function Resultado() {
     const navigate = useNavigate();
-    const [resultado, setResultado] = useState(null);
     const [edad, setEdad] = useState('');
     const [ocupacion, setOcupacion] = useState('');
     const [mostrarResultado, setMostrarResultado] = useState(false);
     const [sleepData, setSleepData] = useState(null);
     const [loadingSleep, setLoadingSleep] = useState(false);
-
-    useEffect(() => {
-        const respuestas = JSON.parse(localStorage.getItem('respuestas'));
-        if (!respuestas) {
-            navigate('/');
-        } else {
-            const { total, diagnostico } = calcularPuntuacionPorItems(respuestas);
-            setResultado({ puntuacion: total, nivel: 'Pre-diagnóstico', descripcion: diagnostico });
-        }
-    }, [navigate]);
-
-    const enviar = () => {
-        if (edad && ocupacion) {
-            setMostrarResultado(true);
-        }
-    };
-
-    const volverInicio = () => {
-        navigate('/');
-    };
 
     // Consulta sesiones de sueño usando el endpoint /sessions
     async function obtenerSesionesSueno(accessToken, dias = 7) {
@@ -122,44 +101,30 @@ export default function Resultado() {
 
         return { horasPorDia: horasMarcadas, promedio, mejor, peor };
     }
+    const volverInicio = () => {
+        navigate('/');
+    };
+
 
     const sleepStats = Array.isArray(sleepData) ? getSleepStats(sleepData) : null;
 
+    const puntajeTotal = localStorage.getItem('puntajeTotal');
+
+    const nivel = 'Pre-Diagnóstico';
+
+    const diagnostico = evaluacionPuntaje(Number(puntajeTotal));
+
     return (
         <div className="resultado-container">
-            {!mostrarResultado ? (
-                <div className="datos-form">
-                    <h2>Antes de ver tu resultado final</h2>
-                    <p>Por favor, selecciona tu edad y ocupación:</p>
-                    <select value={edad} onChange={e => setEdad(e.target.value)} required>
-                        <option value="">Edad</option>
-                        {[...Array(64)].map((_, i) => (
-                            <option key={i + 17} value={i + 17}>{i + 17}</option>
-                        ))}
-                    </select>
-
-                    <select value={ocupacion} onChange={e => setOcupacion(e.target.value)} required>
-                        <option value="">Ocupación</option>
-                        {[
-                            'Médico', 'Profesor', 'Empleado en oficina', 'Comerciante', 'Obrero',
-                            'Conductor', 'Mecánico', 'Mesero', 'Estudiante', 'Ama de casa', 'Desempleado'
-                        ].map((op, i) => (
-                            <option key={i} value={op}>{op}</option>
-                        ))}
-                    </select>
-
-                    <button onClick={enviar} className="btn-enviar">Ver Resultado</button>
-                </div>
-            ) : (
                 <div className="resultado-tarjeta fade-in">
                     <h2>Resultado del Test</h2>
-                    <p className="puntuacion">Puntuación total: <strong>{resultado.puntuacion}</strong></p>
-                    <p className="nivel">{resultado.nivel}</p>
-                    <p className="descripcion">{resultado.descripcion}</p>
+                    <p className="puntuacion">Puntuación total: <strong>{puntajeTotal}</strong></p>
+                    <p className="nivel">{nivel}</p>
+                    <p className="descripcion">{diagnostico}</p>
                     <p className="extra">Edad: {edad} años | Ocupación: {ocupacion}</p>
                     <button className="btn-volver" onClick={volverInicio}>Volver al inicio</button>
 
-                    {resultado.puntuacion >= 6 && (
+                    {puntajeTotal >= 6 && (
                         <div className="mapa-sugerido fade-in">
                             <h3 style={{ marginTop: "2rem" }}>Ubica tu clínica del sueño más cercana</h3>
                             <MapaClinicas />
@@ -257,7 +222,6 @@ export default function Resultado() {
                         </div>
                     )}
                 </div>
-            )}
         </div>
     );
 }

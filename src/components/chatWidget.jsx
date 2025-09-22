@@ -7,15 +7,22 @@ import { getResponse } from "../../scripts/chatApi";
 export default function ChatWidget({ onSendMessage }) {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([
+    { sender: "bot", text: "¡Hola! SOY TU ASISTENTE DEL SUEÑO, ¿EN QUÉ TE AYUDO?" }
+  ]);
 
-  const handleSend = () => {
+  const handleSend = async (e) => {
+    if (e) e.preventDefault();
     if (!input.trim()) return;
-    const userMessage = { sender: "user", text: input };
-    setMessages([...messages, userMessage]);
+    const newMessages = [...messages, { sender: "user", text: input }];
+    setMessages(newMessages);
     setInput("");
-
-    
+    try {
+      const botResponse = await getResponse(input);
+      setMessages([...newMessages, { sender: "bot", text: botResponse }]);
+    } catch (error) {
+      setMessages([...newMessages, { sender: "bot", text: "Error: " + error.message }]);
+    }
   };
 
   return (
@@ -45,18 +52,17 @@ export default function ChatWidget({ onSendMessage }) {
           </div>
 
           {/* Input */}
-          <div className="chat-input">
+          <form className="chat-input-row" onSubmit={handleSend}>
             <input
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Escribe tu mensaje..."
-              onKeyDown={(e) => e.key === "Enter" && handleSend()}
             />
-            <button onClick={handleSend} className="send-btn">
+            <button type="submit" className="send-btn">
               Enviar
             </button>
-          </div>
+          </form>
         </div>
       ) : (
         <button onClick={() => setOpen(true)} className="chat-toggle">

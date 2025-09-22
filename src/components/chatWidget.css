@@ -1,15 +1,14 @@
 .chat-widget {
   position: fixed;
   bottom: 16px;
-  right: 16px;   /* 👈 esto lo quitamos */
-  left: 16px;    /* 👈 y lo ponemos del lado izquierdo */
+  right: 16px;
+  left: 16px;
   z-index: 9999;
 }
 
-
 /* Botón flotante */
 .chat-toggle {
-  background-color: #2563eb;
+  background-color: #864aae;
   color: white;
   border: none;
   border-radius: 50%;
@@ -32,7 +31,7 @@
 
 /* Encabezado */
 .chat-header {
-  background: #2563eb;
+  background: #6a1b9a;
   color: white;
   padding: 12px;
   font-weight: bold;
@@ -67,7 +66,7 @@
 }
 
 .chat-message.user {
-  background: #2563eb;
+  background: #6a1b9a;
   color: white;
   align-self: flex-end;
 }
@@ -79,23 +78,27 @@
 }
 
 /* Input */
-.chat-input {
+.chat-input-row {
   display: flex;
   border-top: 1px solid #ddd;
   padding: 8px;
   gap: 6px;
+  justify-content: flex-end;
+  align-items: center;
+  right: 5px;
 }
 
-.chat-input input {
-  flex: 1;
+.chat-input-row input {
+  width: 70%;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 14px;
+  margin-right: 8px;
 }
 
 .send-btn {
-  background: #2563eb;
+  background: #6a1b9a;
   color: white;
   border: none;
   border-radius: 6px;
