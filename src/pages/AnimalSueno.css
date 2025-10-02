@@ -95,3 +95,133 @@
         margin: 0.5rem 0;
         color: #6c3483;
     }
+
+/* Contenedor del formulario manual */
+.animal-manual-form {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: #fdfdff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+    .animal-manual-form h3 {
+        text-align: center;
+        margin-bottom: 1rem;
+        color: #5a3dbf;
+        font-size: 1.3rem;
+    }
+
+    .animal-manual-form label {
+        display: block;
+        margin-top: 1rem;
+        margin-bottom: 0.3rem;
+        font-weight: 500;
+        color: #333;
+    }
+
+    .animal-manual-form input,
+    .animal-manual-form select {
+        width: 100%;
+        padding: 0.6rem 0.8rem;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+        transition: border 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .animal-manual-form input:focus,
+        .animal-manual-form select:focus {
+            outline: none;
+            border-color: #7b5de4;
+            box-shadow: 0 0 6px rgba(123, 93, 228, 0.4);
+        }
+
+/* Botón morado animado */
+.btn-animal {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, #7b5de4, #9f80f9);
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+}
+
+    .btn-animal:hover {
+        background: linear-gradient(135deg, #9f80f9, #7b5de4);
+        transform: scale(1.05);
+    }
+
+    .btn-animal:active {
+        transform: scale(0.98);
+    }
+
+.resultado-animal.destacado {
+    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+    border: 2px solid #9333ea;
+    border-radius: 16px;
+    padding: 2rem;
+    margin-top: 2rem;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(147, 51, 234, 0.2);
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+    .resultado-animal.destacado .animal-icon {
+        font-size: 4rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .resultado-animal.destacado .animal-nombre {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #4c1d95;
+        margin-bottom: 1rem;
+    }
+
+    .resultado-animal.destacado .animal-desc {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #333;
+    }
+
+    .animal-slogan {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #6d28d9;
+    margin-bottom: 1rem;
+}
+
+.resultado-botones {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.resultado-botones .btn-volver {
+    background: #e5e7eb;
+    color: #111827;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.resultado-botones .btn-volver:hover {
+    background: #d1d5db;
+    transform: scale(1.05);
+}

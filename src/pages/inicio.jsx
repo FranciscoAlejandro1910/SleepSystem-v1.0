@@ -6,6 +6,8 @@ import { ArrowUp } from "lucide-react";
 import MapaClinicas from '../components/MapaClinicas';
 import  '../components/ChatWidget.css';
 import ChatWidget from "../components/chatWidget";
+import GraficaUsers from "../components/graficaUsers";
+import GraficaMujeres from "../components/graficaMujeres";
 
 
 export default function Inicio() {
@@ -44,6 +46,7 @@ export default function Inicio() {
                 </p>
             </section>
 
+            
             <section id="importancia" className="section blanco fade-in">
                 <h2>Importancia del buen dormir</h2>
                 <p>
@@ -68,6 +71,14 @@ export default function Inicio() {
                         <li>Realiza ejercicio físico regularmente, pero no justo antes de dormir.</li>
                     </ul>
                 </div>
+            </section>
+
+            <section id="grafica" className="section blanco fade-in">
+                <GraficaUsers />
+            </section>
+
+            <section id="grafica-mujeres" className="section blanco fade-in">
+                <GraficaMujeres />
             </section>
 
             <section id="evaluacion" className="section blanco fade-in">

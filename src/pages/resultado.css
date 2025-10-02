@@ -115,7 +115,7 @@
     text-align: center;
     max-width: 600px;
     margin: 2rem auto;
-    opacity: 0; /* inicial, hasta que se active la animación */
+    opacity: 0; /* inicial, hasta que se active la animaciï¿½n */
 }
 
 .mapa-sugerido {
@@ -169,14 +169,14 @@
         color: #374151;
     }
 
-/* Ícono dentro del botón */
+/* ï¿½cono dentro del botï¿½n */
 .icono-fit {
     width: 22px;
     height: 22px;
     animation: latido 2s infinite ease-in-out;
 }
 
-/* Animación de latido */
+/* Animaciï¿½n de latido */
 @keyframes latido {
     0%, 100% {
         transform: scale(1);
@@ -187,7 +187,7 @@
     }
 }
 
-/* Botón exclusivo Google Fit */
+/* Botï¿½n exclusivo Google Fit */
 .btn-googlefit {
     background: linear-gradient(135deg, #7e22ce 0%, #2563eb 100%);
     color: white;
@@ -210,4 +210,51 @@
         background: linear-gradient(135deg, #9333ea 0%, #1e3a8a 100%);
         transform: scale(1.08);
         box-shadow: 0 6px 18px rgba(126, 34, 206, 0.4);
+    }
+
+.consejos-sueno {
+    margin-top: 1.5rem;
+    padding: 1rem 1.5rem;
+    background: #f9fafb;
+    border-left: 5px solid #7e22ce;
+    border-radius: 8px;
+}
+
+    .consejos-sueno h5 {
+        margin-bottom: 0.8rem;
+        color: #4b0082;
+    }
+
+    .consejos-sueno ul {
+        padding-left: 1.2rem;
+        list-style: disc;
+    }
+
+    .consejos-sueno li {
+        margin-bottom: 0.6rem;
+        line-height: 1.4;
+    }
+
+.alerta-apnea {
+    margin-top: 2rem;
+}
+
+.apnea-box {
+    background: #fff5f5;
+    border: 2px solid #dc2626;
+    border-radius: 10px;
+    padding: 1.2rem;
+    color: #991b1b;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+    .apnea-box h5 {
+        margin-bottom: 0.8rem;
+        font-size: 1.1rem;
+        color: #b91c1c;
+    }
+
+    .apnea-box p {
+        margin-bottom: 0.5rem;
+        line-height: 1.5;
     }

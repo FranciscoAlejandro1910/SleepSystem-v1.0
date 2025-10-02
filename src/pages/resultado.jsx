@@ -4,6 +4,7 @@ import './Resultado.css';
 import MapaClinicas from '../components/MapaClinicas';
 import { useGoogleLogin } from '@react-oauth/google';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LabelList, Cell } from 'recharts';
+import { fakeDataNormal, fakeDataApnea, fakeDataPerfecto } from '../data/fakeSleepData';
 import imagenGoogleFit from '../assets/googlefit.png'; 
 import { evaluacionPuntaje } from '../../scripts/evaluacionPuntaje';
 
@@ -14,6 +15,7 @@ export default function Resultado() {
     const [mostrarResultado, setMostrarResultado] = useState(false);
     const [sleepData, setSleepData] = useState(null);
     const [loadingSleep, setLoadingSleep] = useState(false);
+    const [modoPrueba, setModoPrueba] = useState("real"); // "real" = Google Fit
 
     // Consulta sesiones de sueño usando el endpoint /sessions
     async function obtenerSesionesSueno(accessToken, dias = 7) {
@@ -57,7 +59,17 @@ export default function Resultado() {
             setLoadingSleep(true);
             setSleepData(null);
             try {
-                const segmentos = await obtenerSesionesSueno(tokenResponse.access_token, 7);
+                let segmentos;
+                if (modoPrueba === "normal") {
+                    segmentos = fakeDataNormal;
+                } else if (modoPrueba === "apnea") {
+                    segmentos = fakeDataApnea;
+                } else if (modoPrueba === "perfecto") {
+                    segmentos = fakeDataPerfecto;
+                } else {
+                    segmentos = await obtenerSesionesSueno(tokenResponse.access_token, 7);
+                }
+
                 if (segmentos.length > 0) {
                     setSleepData(segmentos);
                 } else {
@@ -135,6 +147,18 @@ export default function Resultado() {
                         <h3>¿Quieres complementar tu resultado con datos reales de Google Fit?</h3>
                         <p>Este paso es opcional y ayuda a validar tu calidad de sueño real.</p>
 
+                        {/* Selector de modo de prueba */}
+                        <div style={{ marginBottom: "1rem" }}>
+                            <label>Modo de prueba: </label>
+                            <select value={modoPrueba} onChange={e => setModoPrueba(e.target.value)}>
+                                <option value="real">Datos Reales Google Fit</option>
+                                <option value="normal">Dataset Normal</option>
+                                <option value="apnea">Dataset Apnea</option>
+                                <option value="perfecto">Dataset Perfecto</option>
+                            </select>
+                        </div>
+
+
                         {!sleepData && !loadingSleep ? (
                                 <button onClick={googleFitLogin} className="btn-googlefit">
                                     <img
@@ -184,19 +208,64 @@ export default function Resultado() {
                             )}
 
                             <div className="consejos-sueno">
-                                <h5>Consejos para mejorar tu descanso:</h5>
+                                <h5>Consejos personalizados basados en guías clínicas:</h5>
                                 <ul>
                                     {parseFloat(sleepStats.promedio) < 7 && (
-                                        <li>Intenta dormir al menos 7 horas cada noche.</li>
+                                        <li>
+                                            Según la <strong>Clínica de Trastornos del Sueño de la UNAM</strong>,
+                                            los adultos deben dormir entre 7 y 9 horas. Considera ajustar tus horarios.
+                                        </li>
+                                    )}
+                                    {sleepStats.horasPorDia.some(d => d.horas < 5) && (
+                                        <li>
+                                            Dormir menos de 5 horas por noche, como advierte el <strong>IMMIS</strong>,
+                                            aumenta riesgo de hipertensión, diabetes y accidentes laborales.
+                                        </li>
                                     )}
                                     {sleepStats.mejor.horas - sleepStats.peor.horas > 2 && (
-                                        <li>Mantén horarios más regulares, tus descansos son muy variables.</li>
+                                        <li>
+                                            Tus horarios de sueño son muy variables. La <strong>Clínica del Sueño del CMNO IMSS</strong>
+                                            recomienda mantener horarios fijos para mejorar la calidad del descanso.
+                                        </li>
                                     )}
-                                    <li>Evita pantallas y cafeína antes de dormir.</li>
-                                    <li>Mantén tu habitación oscura y fresca.</li>
-                                    <li>Haz una rutina relajante antes de acostarte.</li>
+                                    {sleepStats.horasPorDia.length >= 5 && sleepStats.horasPorDia.filter(d => d.horas < 6).length >= 3 && (
+                                        <li>
+                                            Dormir menos de 6 horas de manera frecuente puede ser signo de insomnio crónico.
+                                            El <strong>Centro Médico Nacional de Occidente</strong> recomienda evaluación clínica si persiste más de 3 meses.
+                                        </li>
+                                    )}
+                                    <li>
+                                        Evita pantallas y cafeína antes de dormir (recomendación general de la
+                                        <strong> Sociedad Mexicana de Medicina del Sueño</strong>).
+                                    </li>
+                                    <li>
+                                        Mantén tu habitación oscura, silenciosa y fresca — higiene del sueño validada por
+                                        <strong> clínicas certificadas en México</strong>.
+                                    </li>
                                 </ul>
                             </div>
+
+                            {sleepStats && (
+                                <div className="alerta-apnea fade-in">
+                                    {parseFloat(sleepStats.promedio) < 6 && sleepStats.horasPorDia.filter(d => d.horas < 5).length >= 2 && (
+                                        <div className="apnea-box">
+                                            <h5>⚠️ Posible riesgo de apnea del sueño</h5>
+                                            <p>
+                                                Detectamos que tu promedio de sueño es bajo y presentas varios días con
+                                                menos de 5 horas de descanso.
+                                                Según la <strong>Clínica del Sueño de la UNAM</strong> y el
+                                                <strong> Centro Médico Nacional de Occidente (IMSS)</strong>,
+                                                estos son indicadores comunes de <em>trastornos respiratorios del sueño</em> como la apnea.
+                                            </p>
+                                            <p>
+                                                Te recomendamos agendar una evaluación en una clínica certificada
+                                                si presentas además síntomas como ronquidos fuertes, pausas respiratorias
+                                                o somnolencia excesiva durante el día.
+                                            </p>
+                                        </div>
+                                    )}
+                                </div>
+                            )}
 
                             <div style={{ width: '100%', height: 300 }}>
                                 <ResponsiveContainer>
