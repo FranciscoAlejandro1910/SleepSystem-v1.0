@@ -95,6 +95,15 @@ export default function Inicio() {
 
             <footer className="footer">
                 <p>© 2025 - Evaluación de calidad del sueño en empleados | CUCEI</p>
+                <a
+                    href="/privacidad.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link-privacidad"
+                >
+                    Aviso de Privacidad
+                </a>
+
             </footer>
 
             <button className="btn-subir" onClick={scrollToTop}>

@@ -1,6 +1,6 @@
 export async function postPreguntas(usuarioId, respuestas) {
 	try {
-		const res = await fetch('http://localhost:5019/api/respuestas/lote', {
+		const res = await fetch('https://sleepsystemapi-aqfzbeaza8c7grax.canadacentral-01.azurewebsites.net/api/respuestas/lote', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ usuarioId, respuestas })

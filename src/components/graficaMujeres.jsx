@@ -18,7 +18,7 @@ export default function GraficaMujeres() {
   // Ya no se necesita el estado de género seleccionado
 
   useEffect(() => {
-    fetch("http://localhost:5019/api/Dashboard/puntaje-mujeres")
+    fetch("https://sleepsystemapi-aqfzbeaza8c7grax.canadacentral-01.azurewebsites.net/api/Dashboard/puntaje-mujeres")
       .then((res) => res.json())
       .then((data) => setEvaluacionesFemenino(data))
       .catch((err) => console.error(err));
@@ -29,16 +29,16 @@ export default function GraficaMujeres() {
     if (puntajeTotal <= 5) {
       return "Buena";
     } else if (puntajeTotal <= 10) {
-      return "Levemente";
+      return "Regular";
     } else if (puntajeTotal <= 15) {
-      return "Severamente";
+      return "Mala";
     } else {
-      return "Gravemente";
+      return "Pesima";
     }
   }
 
   // Categorías fijas
-  const categoriasFijas = ["Buena", "Levemente", "Severamente", "Gravemente"];
+  const categoriasFijas = ["Buena", "Regular", "Mala", "Pesima"];
 
   // Agrupar por categoría y contar cuántos hay en cada una
   const conteoPorCategoria = categoriasFijas.map((cat) => ({
@@ -48,7 +48,7 @@ export default function GraficaMujeres() {
 
   return (
   <div className="p-7" style={{ minHeight: 300, minWidth: 700, background: '#fff', color: '#222', borderRadius: 12, boxShadow: '0 2px 12px #0002', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-  <h1 className="font-bold mb-4" style={{ fontSize: '2.2em', textAlign: 'center' }}>Calidad del Sueño Mujeres</h1>
+  <h1 className="font-bold mb-4" style={{ fontSize: '2.2em', textAlign: 'center' }}>Calidad del Sueño en Mujeres</h1>
 
       {/* Gráfica de barras por categoría fija */}
       <ResponsiveContainer width={800} height={200}>

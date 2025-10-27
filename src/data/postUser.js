@@ -1,6 +1,6 @@
 // src/data/postUser.js
 export async function postUser({ genero, edad, oficio }) {
-  const res = await fetch('http://localhost:5019/api/Usuarios', {
+  const res = await fetch('https://sleepsystemapi-aqfzbeaza8c7grax.canadacentral-01.azurewebsites.net/api/Usuarios', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ genero, oficio, edad })

@@ -206,3 +206,32 @@ body, html {
         border-radius: 8px;
         border: 1px solid #ccc;
     }
+
+
+.footer {
+    background-color: #1f2937;
+    color: white;
+    padding: 1rem;
+    margin-top: 4rem;
+    text-align: center;
+    position: relative;
+    z-index: 9998;
+    pointer-events: auto;
+}
+
+    .footer p {
+        margin: 0;
+    }
+.link-privacidad {
+    display: block;
+    margin-top: 0.5rem;
+    color: white;
+    text-decoration: underline;
+    font-weight: 600;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.link-privacidad:hover {
+        color: #d1d5db;
+    }
