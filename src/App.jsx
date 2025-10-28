@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Inicio from './pages/Inicio';
+import Inicio from './pages/inicio.jsx';
 import Test from './pages/Test'; 
 import Resultado from './pages/Resultado';
 import AnimalSueno from "./pages/AnimalSueno";
