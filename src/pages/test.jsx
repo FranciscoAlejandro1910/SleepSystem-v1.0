@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Test.css';
+import './test.css';
 import './resultado.css';
 import { getPreguntas } from '../data/getPreguntas';
 import preguntasOpciones from '../data/preguntas';

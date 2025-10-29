@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Resultado.css';
+import './resultado.css';
 import MapaClinicas from '../components/MapaClinicas.jsx';
 import { useGoogleLogin } from '@react-oauth/google';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LabelList, Cell } from 'recharts';

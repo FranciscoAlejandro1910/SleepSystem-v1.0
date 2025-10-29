@@ -1,7 +1,7 @@
 // src/components/ChatWidget.jsx
 import { useState } from "react";
 import { MessageCircle, X } from "lucide-react"; 
-import "./ChatWidget.css"; // importa el CSS
+import "./chatWidget.css"; // importa el CSS
 import { getResponse } from "../../scripts/chatApi";
 
 export default function ChatWidget({ onSendMessage }) {

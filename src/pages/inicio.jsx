@@ -1,5 +1,5 @@
 import React from "react";
-import "./Inicio.css";
+import "./inicio.css";
 import imagenSueno from "../assets/sueno.png";
 import imagenHigiene from "../assets/higiene.png";
 import { ArrowUp } from "lucide-react";
