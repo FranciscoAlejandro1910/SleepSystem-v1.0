@@ -4,7 +4,7 @@ import imagenSueno from "../assets/sueno.png";
 import imagenHigiene from "../assets/higiene.png";
 import { ArrowUp } from "lucide-react";
 import MapaClinicas from '../components/MapaClinicas.jsx';
-import  '../components/ChatWidget.css';
+import  '../components/chatWidget.css';
 import ChatWidget from "../components/chatWidget.jsx";
 import GraficaUsers from "../components/graficaUsers.jsx";
 import GraficaMujeres from "../components/graficaMujeres.jsx";
