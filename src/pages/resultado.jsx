@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Resultado.css';
-import MapaClinicas from '../components/MapaClinicas';
+import MapaClinicas from '../components/MapaClinicas.jsx';
 import { useGoogleLogin } from '@react-oauth/google';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LabelList, Cell } from 'recharts';
 import { fakeDataNormal, fakeDataApnea, fakeDataPerfecto } from '../data/fakeSleepData';

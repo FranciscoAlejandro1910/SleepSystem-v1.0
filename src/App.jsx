@@ -1,9 +1,9 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Inicio from './pages/inicio.jsx';
-import Test from './pages/Test'; 
-import Resultado from './pages/Resultado';
-import AnimalSueno from "./pages/AnimalSueno";
+import Test from './pages/test.jsx'; 
+import Resultado from './pages/resultado.jsx';
+import AnimalSueno from "./pages/AnimalSueno.jsx";
 
 export default function App() {
     return (
